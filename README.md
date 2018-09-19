@@ -1,4 +1,4 @@
-# OenFace_ME_Demo
+# OpenFace_ME_Demo
 Frame analysis of Micro-Expressions detected from webcam
 
 Tested on Ubuntu 16.04 using Python 3.5
