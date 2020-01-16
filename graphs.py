@@ -93,7 +93,7 @@ class gui(tk.Tk):
                 y.append(float(row[au_index]))
             frame.independent_values = x
             frame.dependent_values = y
-            frame.draw_plot(x,y,au)
+            frame.draw_plot(x,y,"AU%s" % au.zfill(2))
             frame.tkraise()
         else:
             frame = self.frames[StartPage]
@@ -173,7 +173,11 @@ class Page(tk.Frame):
         self.draw_pic(0)
 
     def draw_plot(self, x, y, au):
-        self.title_label.config(text=au)
+        with open("code.csv") as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                if row.startswith(au):
+                    self.title_label.config(text=row)
         self.ax.clear()
         self.ax.set_xlabel("Time Stamp")
         self.ax.set_ylabel("Intensity")
