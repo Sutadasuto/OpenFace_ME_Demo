@@ -107,7 +107,7 @@ class StartPage(tk.Frame):
         self.matrix = controller.openface_matrix
         label = tk.Label(self, text="WELCOME!", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
-        label2 = tk.Label(self, text="Write down the AU of interest and click the button to analyze.", font=LARGE_FONT)
+        label2 = tk.Label(self, text="Write down the integer number corresponding to the AU of interest and click the button to analyze.", font=LARGE_FONT)
         label2.pack()
 
         self.text_box = tk.Entry(self)
@@ -174,8 +174,10 @@ class Page(tk.Frame):
 
     def draw_plot(self, x, y, au):
         with open("code.csv") as csv_file:
-            reader = csv.reader(csv_file)
+            reader = csv_file.readlines()
             for row in reader:
+                print(row)
+                print(au)
                 if row.startswith(au):
                     self.title_label.config(text=row)
         self.ax.clear()
