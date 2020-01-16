@@ -12,6 +12,7 @@ def parse_args(args=None):
     parser.add_argument("openface_path", type=str)
     parser.add_argument("--output_folder", type=str, default=os.path.join(os.getcwd(), datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
     parser.add_argument("--device_id", type=int, default=0)
+    return parser.parse_args(args)
     
 
 def main(args):
