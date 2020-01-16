@@ -82,9 +82,9 @@ class gui(tk.Tk):
         self.destroy()
 
     def change_plot(self, au):
-        if au in self.available_aus and len(au)>0:
+        if au in [item.lstrip("AU").lstrip("0") for item in self.available_aus] and len(au)>0:
             frame = self.frames[Page]
-            au_index = self.openface_matrix[0].index(" " + au + "_r")
+            au_index = self.openface_matrix[0].index(" AU%s_r" % au.zfill(2))
             ts_index = self.openface_matrix[0].index(" timestamp")
             x = []
             y = []
