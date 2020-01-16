@@ -14,8 +14,7 @@ def parse_args(args=None):
     
 
 def main(args):
-    command = '%s -device %s -vis-aus -pose -aus -gaze -simalign -tracked -g -out_dir "%s"' % 
-          (os.path.join(args.openface_path, "build", "bin", "FeatureExtraction").replace(" ", "\ "), args.device_id, args.output_folder)
+    command = '%s -device %s -vis-aus -pose -aus -gaze -simalign -tracked -g -out_dir "%s"' % (os.path.join(args.openface_path, "build", "bin", "FeatureExtraction").replace(" ", "\ "), args.device_id, args.output_folder)
     os.system(command)
  
     app = gui(outputFolder)
